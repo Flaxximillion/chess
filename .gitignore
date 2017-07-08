@@ -7,3 +7,9 @@
 *.iml
 out
 gen
+.firebaserc
+database.rules.json
+firebase-debug.log
+firebase.json
+flaxxchess-firebase-adminsdk-rn0st-909bf8f7d1.json
+public/
