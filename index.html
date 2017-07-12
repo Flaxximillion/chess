@@ -4,32 +4,68 @@
     <meta charset="UTF-8">
     <title>A shitty chess game</title>
     <link rel="stylesheet" href="assets/css/chessboard-0.3.0.css">
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body>
 
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
-<div id="board" style="width: 400px"></div>
-<p>Status: <span id="status"></span></p>
-<p>FEN: <span id="fen"></span></p>
-<p>PGN: <span id="pgn"></span></p>
 
-
-<input type="button" id="restartButton" value="Restart"/>
-<section id="userButtons">
-    <button id="login">Login</button>
-    <button id="createRoom">Create a New Room</button>
-    <input type="text" id="room">
-    <button id="joinRoom">Join an Existing Room</button>
+<section id="userButtons" class="box columns is-mobile level">
+    <div class="column level-left">
+        <button id="login" class="button is-primary">Login</button>
+    </div>
+    <div class="columns level-right">
+        <div class="column container">
+            <button id="restartButton" class="button is-success" disabled>Restart</button>
+            <button id="createRoom" class="button is-success" disabled>Create a New Room</button>
+            <button id="playPC" class="button is-success" disabled>Play a Computer</button>
+        </div>
+        <div class="field column">
+            <button id="joinRoom" class="button is-success" disabled>Join an Existing Room</button>
+            <label class="label">Room ID</label>
+            <input type="text" id="room">
+        </div>
+    </div>
 </section>
 
+<section class="container">
+    <div id="board"></div>
+</section>
+
+
+<section class="box column">
+    <p>Status: <span id="status"></span></p>
+    <p>FEN: <span id="fen"></span></p>
+    <p>PGN: <span id="pgn"></span></p>
+</section>
+
+
+<div id="dialog-message" title="Game Status">
+    <p>
+        Game Status: <span id="gameStatus"></span>
+        <br>
+        Room Key: <span id="roomKey"></span>
+    </p>
+</div>
+
+<div id="firechat-wrapper"></div>
 
 <script
         src="https://code.jquery.com/jquery-3.2.1.js"
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
-<script src="assets/js/chessboard-0.3.0.js"></script>
-<script src="assets/js/chess.js"></script>
+<script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
+<script src="assets/js/chessboard-0.3.0.js" type="text/javascript"></script>
+<script src="assets/js/chess.js" type="text/javascript"></script>
 
 <script src="assets/js/logic.js"></script>
 </body>
